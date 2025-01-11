@@ -1,27 +1,301 @@
-#container {
-  text-align: center;
+:root {
+  --hulu-green: #1ce783;
+  --dark-bg: #0b0c0f;
+  --card-bg: #1a1c22;
+}
 
+.dark-theme {
+  --ion-background-color: var(--dark-bg);
+  --ion-text-color: #ffffff;
+}
+
+ion-content.dark-theme {
+  --background: var(--dark-bg);
+}
+
+.custom-header {
+  padding: 20px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), var(--dark-bg));
+}
+
+.gradient-text {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(45deg, var(--hulu-green), #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+}
+
+.custom-searchbar {
+  --background: var(--card-bg);
+  --border-radius: 10px;
+  --placeholder-color: #8e8e8e;
+  --icon-color: #8e8e8e;
+}
+
+.featured-movie {
+  position: relative;
+  margin: 20px -20px;
+  height: 400px;
+  overflow: hidden;
+}
+
+.featured-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+}
+
+.featured-content {
   position: absolute;
+  bottom: 0;
   left: 0;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  padding: 20px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.featured-overview {
+  max-width: 600px;
+  margin-bottom: 15px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 1rem;
+  opacity: 0.8;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+.featured-meta {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+  align-items: center;
 }
 
-#container a {
-  text-decoration: none;
+.watch-button {
+  --background: var(--hulu-green);
+  --color: var(--dark-bg);
+  font-weight: bold;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.section-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.movies-container {
+  padding: 0 10px;
+}
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.movie-slider {
+  padding: 10px 0;
+}
+
+swiper-container {
+  padding: 10px 0;
+}
+
+swiper-slide {
+  width: 150px;
+  height: auto;
+}
+
+.movie-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.movie-card:hover {
+  transform: scale(1.03);
+}
+
+.poster-container {
+  position: relative;
+  aspect-ratio: 2/3;
+}
+
+.poster-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rating {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 5px 8px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.rating ion-icon {
+  color: var(--hulu-green);
+}
+
+.movie-card h3 {
+  font-size: 0.9rem;
+  margin: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-card p {
+  font-size: 0.8rem;
+  color: #8e8e8e;
+  margin: 0 10px 10px;
+}
+
+.loading-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.skeleton-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.skeleton-image {
+  width: 100%;
+  aspect-ratio: 2/3;
+  background: linear-gradient(
+    90deg,
+    var(--card-bg) 0%,
+    #2a2d35 50%,
+    var(--card-bg) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.skeleton-text {
+  height: 40px;
+  margin: 10px;
+  background: linear-gradient(
+    90deg,
+    var(--card-bg) 0%,
+    #2a2d35 50%,
+    var(--card-bg) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  text-align: center;
+  color: #8e8e8e;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  color: #8e8e8e;
+}
+
+ion-infinite-scroll-content {
+  --color: var(--hulu-green);
+}
+
+@media (max-width: 768px) {
+  .gradient-text {
+    font-size: 2rem;
+  }
+
+  .movies-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
+  }
+
+  .featured-movie {
+    height: 300px;
+  }
+
+  swiper-slide {
+    width: 120px;
+  }
+
+  .section-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .movie-card h3 {
+    font-size: 0.8rem;
+  }
+
+  .movie-card p {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gradient-text {
+    font-size: 1.5rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.2rem;
+  }
+
+  .featured-movie {
+    height: 250px;
+  }
+
+  swiper-slide {
+    width: 100px;
+  }
+
+  .movie-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+  }
+
+  .movie-card h3 {
+    font-size: 0.7rem;
+  }
+
+  .movie-card p {
+    font-size: 0.6rem;
+  }
 }

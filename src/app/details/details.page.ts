@@ -21,6 +21,8 @@ import {
   IonText,
   IonCardContent,
   IonLabel,
+  IonIcon,
+  IonItem,
 } from '@ionic/angular/standalone';
 import { MovieService } from '../service/movie.service';
 import { MovieResult } from '../service/interfaces';
@@ -31,7 +33,7 @@ import { MovieResult } from '../service/interfaces';
   styleUrls: ['./details.page.scss'],
   standalone: true,
   imports: [
-    IonLabel,
+    IonIcon,
     IonCardContent,
     IonText,
     IonCard,
@@ -44,9 +46,7 @@ import { MovieResult } from '../service/interfaces';
     FormsModule,
     IonButtons,
     IonBackButton,
-    IonCardHeader,
     IonCardSubtitle,
-    IonCardTitle,
     IonCardContent,
   ],
 })

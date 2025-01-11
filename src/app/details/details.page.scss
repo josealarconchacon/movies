@@ -1,0 +1,158 @@
+ion-header {
+  --background: #1e1e2f;
+  --color: #ffffff;
+}
+
+ion-toolbar {
+  --background: #2c2c40;
+}
+
+ion-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+ion-card {
+  margin: 16px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  background-color: #1a1c22;
+  color: #ffffff;
+}
+
+.movie-poster {
+  height: 350px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.movie-poster .poster-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: #ffffff;
+}
+
+.movie-poster .poster-overlay .movie-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.movie-poster .poster-overlay .movie-tagline {
+  font-size: 1.2rem;
+  margin: 4px 0 0;
+  font-style: italic;
+}
+
+.movie-details {
+  padding: 16px;
+}
+
+.movie-details ion-card-subtitle {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 4px;
+  color: #8e8e8e;
+}
+
+.movie-details .overview {
+  font-size: 1.1rem;
+  color: #ffffff;
+  margin: 16px 0;
+  line-height: 1.6;
+}
+
+.movie-details .movie-meta {
+  display: flex;
+  gap: 16px;
+}
+
+.movie-details .movie-meta .meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+.movie-details .movie-meta ion-icon {
+  font-size: 1.4rem;
+  color: #1ce783;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .movie-poster {
+    height: 250px;
+  }
+
+  .movie-poster .poster-overlay .movie-title {
+    font-size: 1.5rem;
+  }
+
+  .movie-poster .poster-overlay .movie-tagline {
+    font-size: 1rem;
+  }
+
+  .movie-details {
+    padding: 12px;
+  }
+
+  .movie-details .overview {
+    font-size: 1rem;
+  }
+
+  .movie-details .movie-meta {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .movie-poster {
+    height: 200px;
+  }
+
+  .movie-poster .poster-overlay {
+    padding: 12px;
+  }
+
+  .movie-poster .poster-overlay .movie-title {
+    font-size: 1.2rem;
+  }
+
+  .movie-poster .poster-overlay .movie-tagline {
+    font-size: 0.9rem;
+  }
+
+  .movie-details {
+    padding: 12px;
+  }
+
+  .movie-details .overview {
+    font-size: 0.9rem;
+  }
+
+  .movie-details .movie-meta {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .movie-details ion-card-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .movie-details .movie-meta .meta-item {
+    font-size: 0.9rem;
+  }
+
+  .movie-details .movie-meta ion-icon {
+    font-size: 1.2rem;
+  }
+}

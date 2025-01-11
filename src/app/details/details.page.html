@@ -3,8 +3,47 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{movie()?.title}}</ion-title>
+    <ion-title>{{ movie()?.title }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  @if (movie(); as movie) {
+  <ion-card>
+    <div
+      class="movie-poster"
+      [style.background-image]="'url(' + imageBaseUrl + '/w400' + movie?.poster_path + ')'"
+    >
+      <div class="poster-overlay">
+        <h1 class="movie-title">{{ movie?.title }}</h1>
+        <p class="movie-tagline">{{ movie?.tagline }}</p>
+      </div>
+    </div>
+
+    <div class="movie-details">
+      <ion-card-subtitle
+        >Vote Average: {{ movie?.vote_average }}</ion-card-subtitle
+      >
+      <ion-card-subtitle>Duration: {{ movie?.runtime }} mins</ion-card-subtitle>
+      <ion-card-content>
+        <ion-text color="tertiary">
+          @for (genre of movie.genres; track genre.id; let isLast = $last) {
+          <span>{{ genre.name }}{{ !isLast ? ', ' : '' }}</span>
+          }
+        </ion-text>
+        <p class="overview">{{ movie?.overview }}</p>
+        <div class="movie-meta">
+          <div class="meta-item">
+            <ion-icon name="calendar-outline"></ion-icon>
+            <span>{{ movie?.release_date | date: 'y' }}</span>
+          </div>
+          <div class="meta-item">
+            <ion-icon name="cash-outline"></ion-icon>
+            <span>{{ movie?.revenue | currency: 'USD' }}</span>
+          </div>
+        </div>
+      </ion-card-content>
+    </div>
+  </ion-card>
+  }
+</ion-content>
